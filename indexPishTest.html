@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détecteur de phishing</title>
+  <script src="js/phishing.js" defer></script>
+</head>
+<body>
+
+<h2>Détecteur de phishing</h2>
+
+<label>Expéditeur :</label><br>
+<input type="text" id="expediteur" placeholder="ex: support@paypa1.com"><br><br>
+
+<label>Objet :</label><br>
+<input type="text" id="sujet"><br><br>
+
+<label>Message :</label><br>
+<textarea id="corps"></textarea><br><br>
+
+<button onclick="analyze()">Analyser</button>
+
+<h3>Score :</h3>
+<p id="score"></p>
+
+<h3>Raisons :</h3>
+<ul id="raisons"></ul>
+
+</body>
+</html>
