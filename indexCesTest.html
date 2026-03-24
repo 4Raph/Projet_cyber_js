@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chiffrement César</title>
+  <script src="js/cipher.js" defer></script>
+</head>
+<body>
+
+<h2>Chiffrement César</h2>
+
+<textarea id="message" placeholder="Votre message"></textarea><br><br>
+
+<label>Décalage :</label>
+<input type="number" id="décalage" min="1" max="25" value="3"><br><br>
+
+<button onclick="Chiffrement()">Chiffrer</button>
+<button onclick="Dechiffrement()">Déchiffrer</button>
+<button onclick="bruteForce()">Force brute</button>
+
+<input type="message" id="cle" placeholder="Clé Vigenère">
+<button onclick="vigenereChiffrage()">Vigenère Chiffrer</button>
+<button onclick="vigenereDechiffrage()">Vigenère Déchiffrer</button>
+
+<h3>Résultat :</h3>
+<p id="resultat"></p>
+
+<h3>Force brute :</h3>
+<table border="1" id="bruteforceTab"></table>
+
+</body>
+</html>
