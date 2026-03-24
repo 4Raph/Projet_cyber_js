@@ -52,7 +52,7 @@ function analyze() {
     expediteur: document.getElementById("expediteur").value,
     sujet: document.getElementById("sujet").value,
     corps: document.getElementById("corps").value
-  };
+  }
 
   let resultat = analyzeEmail(email)
 
@@ -65,5 +65,5 @@ function analyze() {
     let li = document.createElement("li")
     li.innerText = r
     liste.appendChild(li)
-  });
+  })
 }
