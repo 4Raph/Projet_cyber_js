@@ -37,9 +37,9 @@ function analyzeEmail(email){
         raisons.push("Expéditeur du mail légitime")
     }
 
-    let NonLegit = phishingRules.legitimateSenders.every(domaine => !email.expediteur.includes(domaine));
+    let NonLegit = phishingRules.legitimateSenders.every(domaine => !email.expediteur.includes(domaine))
     if (NonLegit) {
-        score += 10;
+        score += 10
         raisons.push("Expéditeur non reconnu")
     }
 
