@@ -1,5 +1,5 @@
 const phishingRules = { urgencyKeywords: [ 'urgent', 'immédiatement', 'expire dans', 'action requise', 'votre compte sera suspendu', 'vérifiez maintenant'], 
-                        suspiciousDomains: [ 'paypa1.com', 'amaz0n.fr', 'noreply-security.tk'], 
+                        suspiciousDomains: [ 'paypa1.com', 'amaz0n.fr', 'noreply-security.tk','winamax-france.fr'], 
                         redFlags: [ 'cliquez ici', 'connexion sécurisée', 'mot de passe expiré', 'vous avez gagné', 'félicitations'], 
                         legitimateSenders: ['@impots.gouv.fr', '@pole-emploi.fr'] }
 
@@ -9,7 +9,7 @@ function analyzeEmail(email){
     let contenue = (email.sujet + " " + email.corps).toLowerCase()
     let Urgent = phishingRules.urgencyKeywords.some(keyword => contenue.includes(keyword))
     if (Urgent) {
-        score += 20;
+        score += 20
         raisons.push("Présence de mots urgents")
     }
 
@@ -40,7 +40,7 @@ function analyzeEmail(email){
     let NonLegit = phishingRules.legitimateSenders.every(domaine => !email.expediteur.includes(domaine));
     if (NonLegit) {
         score += 10;
-        raisons.push("Expéditeur non reconnu");
+        raisons.push("Expéditeur non reconnu")
     }
 
     score = Math.max(0, Math.min(100, score))
@@ -54,16 +54,16 @@ function analyze() {
     corps: document.getElementById("corps").value
   };
 
-  let resultat = analyzeEmail(email);
+  let resultat = analyzeEmail(email)
 
-  document.getElementById("score").innerText = resultat.score + " / 100";
+  document.getElementById("score").innerText = resultat.score + " / 100"
 
-  let liste = document.getElementById("raisons");
-  liste.innerHTML = "";
+  let liste = document.getElementById("raisons")
+  liste.innerHTML = ""
 
   resultat.raisons.forEach(r => {
-    let li = document.createElement("li");
-    li.innerText = r;
-    liste.appendChild(li);
+    let li = document.createElement("li")
+    li.innerText = r
+    liste.appendChild(li)
   });
 }
