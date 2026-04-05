@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <script src="js/dashboard.js" defer></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h2>📰 Dashboard Cyber</h2>
+
+<button onclick="ChargerNews()">Charger les actualités</button>
+
+<br><br>
+
+<input type="text" id="recherche" placeholder="Rechercher..." oninput="RechercheNews()">
+
+<select id="filter" onchange="filtreNews()">
+  <option value="all">Toutes</option>
+  <option value="critical">Critiques</option>
+</select>
+
+<h3 id="alertNiv"></h3>
+
+<div id="newsContainer"></div>
+
+</body>
+</html>

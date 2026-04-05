@@ -1,7 +1,7 @@
 const phishingRules = { urgencyKeywords: [ 'urgent', 'immédiatement', 'expire dans', 'action requise', 'votre compte sera suspendu', 'vérifiez maintenant'], 
                         suspiciousDomains: [ 'paypa1.com', 'amaz0n.fr', 'noreply-security.tk','winamax-france.fr'], 
-                        redFlags: [ 'cliquez ici', 'connexion sécurisée', 'mot de passe expiré', 'vous avez gagné', 'félicitations'], 
-                        legitimateSenders: ['@impots.gouv.fr', '@pole-emploi.fr'] }
+                        redFlags: [ 'cliquez ici', 'connexion sécurisée', 'mot de passe expiré', 'vous avez gagné', 'félicitations','concours'], 
+                        legitimateSenders: ['@impots.gouv.fr', '@pole-emploi.fr','@education.gouv.fr','@urssaf.fr','@ameli.fr','@amazon.fr'] }
 
 function analyzeEmail(email){
     let score = 0
