@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CyberShield</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="js/app.js" defer></script>
+<script src="js/password.js" defer></script>
+<script src="js/cipher.js" defer></script>
+<script src="js/phishing.js" defer></script>
+<script src="js/dashboard.js" defer></script>
+<script src="js/quiz-data.js"></script>
+<script src="js/quizz.js" defer></script>
+
+</head>
+
+<body>
+
+<h1>CyberShield</h1>
+
+<!-- NAVIGATION -->
+<div class="tabs">
+<button onclick="openTab('home')">Home</button>
+<button onclick="openTab('password')">Password</button>
+<button onclick="openTab('cipher')">Chiffrement</button>
+<button onclick="openTab('phishing')">Phishing</button>
+<button onclick="openTab('dashboard')">Dashboard</button>
+<button onclick="openTab('quiz')">Quiz</button>
+</div>
+
+<!-- HOME -->
+<div id="home" class="tab active">
+<h2>Dashboard Global</h2>
+<p id="homeScore"></p>
+<p id="homePassword"></p>
+<p id="homePhishing"></p>
+<p id="homeNews"></p>
+</div>
+
+<!-- PASSWORD -->
+<div id="password" class="tab">
+<h2>Analyseur de mot de passe</h2>
+
+<input type="text" id="passwordInput">
+<div id="passwordStrength"></div>
+
+</div>
+
+<!-- CHIFFREMENT -->
+<div id="cipher" class="tab">
+<h2>Chiffrement César</h2>
+
+<textarea id="message" placeholder="Votre message"></textarea><br><br>
+
+<label>Décalage :</label>
+<input type="number" id="décalage" min="1" max="25" value="3"><br><br>
+
+<button onclick="Chiffrement()">Chiffrer</button>
+<button onclick="Dechiffrement()">Déchiffrer</button>
+<button onclick="bruteForce()">Force brute</button>
+
+<input type="message" id="cle" placeholder="Clé Vigenère">
+<button onclick="vigenereChiffrage()">Vigenère Chiffrer</button>
+<button onclick="vigenereDechiffrage()">Vigenère Déchiffrer</button>
+
+<h3>Résultat :</h3>
+<p id="resultat"></p>
+
+<h3>Force brute :</h3>
+<table border="1" id="bruteforceTab"></table>
+
+</div>
+
+<!-- PHISHING -->
+<div id="phishing" class="tab">
+<h2>Détecteur de phishing</h2>
+
+<label>Expéditeur :</label><br>
+<input type="text" id="expediteur" placeholder="ex: support@paypa1.com"><br><br>
+
+<label>Objet :</label><br>
+<input type="text" id="sujet"><br><br>
+
+<label>Message :</label><br>
+<textarea id="corps"></textarea><br><br>
+
+<button onclick="analyze()">Analyser</button>
+
+<h3>Score :</h3>
+<p id="score"></p>
+
+<h3>Raisons :</h3>
+<ul id="raisons"></ul>
+
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="tab">
+<h2>Actualités Cyber</h2>
+
+<button onclick="ChargerNews()">Charger les actualités</button>
+
+<br><br>
+
+<input type="text" id="recherche" placeholder="Rechercher..." oninput="RechercheNews()">
+
+<select id="filter" onchange="filtreNews()">
+  <option value="all">Toutes</option>
+  <option value="critical">Critiques</option>
+</select>
+
+<h3 id="alertNiv"></h3>
+
+<div id="newsContainer"></div>
+
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="tab">
+<h2>Quiz Cyber</h2>
+
+<div id="quizContent">
+  <p id="progress"></p>
+  <div id="bar">
+    <div id="barFill"></div>
+  </div>
+  <p id="question"></p>
+  <div id="reponse"></div>
+
+  <p id="timer"></p>
+  <p id="explication"></p>
+
+  <button onclick="startQuiz()">Démarrer le quiz</button>
+  <button onclick="nextQuestion()">Question suivante</button>
+
+  <h3 id="score"></h3>
+</div>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

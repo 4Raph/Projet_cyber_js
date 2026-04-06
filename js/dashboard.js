@@ -3,7 +3,6 @@ const API_KEY = "11eaaf12d3a6494cb17e9ef3bafcb6a2";
 let articles = [];
 let vieuxArticles = JSON.parse(localStorage.getItem("vieuxArticles")) || [];
 
-// 🔄 Charger les news
 async function ChargerNews() {
   let res = await fetch(`https://newsapi.org/v2/everything?q=cybersecurity&pageSize=10&apiKey=${API_KEY}`);
   let data = await res.json();
