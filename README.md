@@ -8,6 +8,10 @@ CyberShield est une application web interactive développée en JavaScript perme
 
 ### Analyseur de mot de passe
 
+- Vérification de la robustesse
+- Barre de sécurité visuelle
+- Niveau : faible / moyen / fort
+
 ### Chiffrement
 
 - Chiffrement César
