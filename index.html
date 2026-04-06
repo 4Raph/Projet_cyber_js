@@ -37,6 +37,7 @@
 <p id="homePassword"></p>
 <p id="homePhishing"></p>
 <p id="homeNews"></p>
+<button onclick="generateReport()">Générer rapport de sécurité</button>
 </div>
 
 <!-- PASSWORD -->
@@ -139,8 +140,21 @@
 </div>
 </div>
 
+<div id="reportModal" class="modal">
+  <div class="modal-content">
 
+    <span class="fermer" onclick="fermerRapport()">&times;</span>
 
+    <h2>Rapport de sécurité CyberShield</h2>
+
+    <div id="reportContent"></div>
+
+    <br>
+
+    <button onclick="exportJSON()">Exporter JSON</button>
+    <button onclick="printRapport()">Imprimer</button>
+
+  </div>
 </div>
 
 </body>

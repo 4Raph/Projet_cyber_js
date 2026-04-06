@@ -1,61 +1,334 @@
-#newsContainer div:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.02);
-  transition: 0.2s;
-}
-#bar {
-  width: 100%;
-  height: 10px;
-  background: #ddd;
-}
-
-#barFill {
-  height: 100%;
-  background: green;
-  width: 0%;
-}
+/* ===== GLOBAL ===== */
 
 body {
-font-family: Arial;
-margin: 20px;
+font-family: Arial, Helvetica, sans-serif;
+background: #f5f7fb;
+margin: 0;
+padding: 20px;
+color: #333;
 }
 
-.tabs {
+h1 {
+text-align: center;
 margin-bottom: 20px;
+color: #007BFF;
+letter-spacing: 1px;
+}
+
+/* ===== TABS NAVIGATION ===== */
+
+.tabs {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-bottom: 20px;
+flex-wrap: wrap;
 }
 
 .tabs button {
-padding: 10px;
-margin-right: 5px;
+background: #007BFF;
+border: 1px solid #ddd;
+padding: 10px 15px;
 cursor: pointer;
+border-radius: 8px;
+transition: 0.2s;
+font-weight: bold;
 }
+
+.tabs button:hover {
+background: white;
+color: #007BFF;
+}
+
+.tabs button.active {
+background: #007BFF;
+color: white;
+}
+
+/* ===== TAB CONTENT ===== */
 
 .tab {
 display: none;
-border: 1px solid #ccc;
+background: white;
 padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .tab.active {
 display: block;
 }
 
+/* ===== BUTTONS ===== */
+
 button {
-padding: 8px;
-margin: 5px;
+background: #007BFF;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 6px;
+cursor: pointer;
+transition: 0.2s;
 }
 
-textarea {
+button:hover {
+background: #0056b3;
+}
+
+button:disabled {
+background: #ccc;
+cursor: not-allowed;
+}
+
+/* ===== INPUTS ===== */
+
+input, textarea, select {
 width: 100%;
-height: 80px;
+padding: 8px;
+margin-top: 5px;
+margin-bottom: 10px;
+border-radius: 6px;
+border: 1px solid #ccc;
+box-sizing: border-box;
 }
 
-input {
-padding: 5px;
-margin: 5px;
+/* ===== HOME DASHBOARD ===== */
+
+#home {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 15px;
+}
+
+#home p {
+width: 400px;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+font-size: 16px;
+}
+
+#home p:empty {
+display: none;
+}
+
+/* ===== QUIZ ===== */
+
+#bar {
+width: 100%;
+height: 10px;
+background: #eee;
+border-radius: 10px;
+overflow: hidden;
+margin-bottom: 15px;
+}
+
+#barFill {
+height: 100%;
+background: linear-gradient(90deg, #007BFF, #00c6ff);
+width: 0%;
+transition: 0.3s;
+}
+
+#reponse button {
+display: block;
+width: 100%;
+margin: 5px 0;
+text-align: left;
+background: white;
+color: #333;
+border: 1px solid #ddd;
+}
+
+#reponse button:hover {
+background: #007BFF;
+color: white;
+}
+
+/* ===== DASHBOARD NEWS ===== */
+
+.newsCard {
+border: 1px solid #eee;
+padding: 15px;
+margin: 10px 0;
+border-radius: 8px;
+cursor: pointer;
+transition: 0.2s;
+background: white;
+}
+
+.newsCard:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 #newsContainer div:hover {
-background: #f5f5f5;
+  background-color: #f0f0f0;
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+/* ===== PHISHING ===== */
+
+#raisons li {
+background: #fff3cd;
+padding: 8px;
+margin: 5px 0;
+border-radius: 5px;
+}
+
+/* ===== SCORE COLORS ===== */
+
+.score-low {
+color: green;
+font-weight: bold;
+}
+
+.score-medium {
+color: orange;
+font-weight: bold;
+}
+
+.score-high {
+color: red;
+font-weight: bold;
+}
+
+/* ===== TABLE BRUTE FORCE ===== */
+
+#bruteforceTab {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+}
+
+#bruteforceTab td {
+border: 1px solid #ddd;
+padding: 8px;
+}
+
+#bruteforceTab tr:nth-child(even) {
+background: #f9f9f9;
+}
+
+#bruteforceTab tr:hover {
+background: #f1f7ff;
+}
+
+/* ===== PASSWORD BAR ===== */
+
+#passwordStrength {
+height: 15px;
+background: #eee;
+border-radius: 10px;
+overflow: hidden;
+margin-top: 10px;
+}
+
+#passwordStrength div {
+height: 100%;
+width: 0%;
+transition: 0.3s;
+}
+
+.weak {
+background: red;
+}
+
+.medium {
+background: orange;
+}
+
+.strong {
+background: green;
+}
+
+/* ===== CARDS ===== */
+
+.card {
+background: white;
+padding: 15px;
+border-radius: 10px;
+margin: 10px 0;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== TITLES ===== */
+
+h2 {
+margin-top: 0;
+color: #007BFF;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 600px) {
+
+.tabs {
+flex-direction: column;
+}
+
+button {
+width: 100%;
+}
+
+}
+
+
+.tab {
+display: none;
+background: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+animation: fade 0.2s ease;
+}
+
+@keyframes fade {
+from {
+opacity: 0;
+transform: translateY(5px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+
+/* ===== RAPPORT ===== */
+.modal {
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: #f5f7fb;
+}
+
+
+.modalContenue {
+background: white;
+margin: 80px auto;
+padding: 20px;
+width: 500px;
+max-width: 90%;
+border-radius: 10px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* bouton fermer */
+.fermer {
+float: right;
+font-size: 24px;
 cursor: pointer;
+color: #999;
+}
+
+.fermer:hover {
+color: #000;
 }
