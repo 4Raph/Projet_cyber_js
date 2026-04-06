@@ -1,5 +1,4 @@
 function openTab(tabId) {
-
 document.querySelectorAll(".tab").forEach(tab => {
 tab.classList.remove("active");
 });
@@ -30,19 +29,12 @@ document.getElementById("homeScore").innerText =
 let reportData = {};
 
 function generateReport() {
-
 reportData = {
-
-date: new Date().toLocaleString(),
-
-password: document.getElementById("passwordStrength").innerText || "Non testé",
-
-quizScore: localStorage.getItem("scores") || "Pas fait",
-
-phishingScore: document.getElementById("score").innerText || "Non testé",
-
-newsViewed: document.getElementById("alertNiv").innerText || "Aucune",
-
+    date: new Date().toLocaleString(),
+    password: document.getElementById("passwordStrength").innerText || "Non testé",
+    quizScore: localStorage.getItem("scores") || "Pas fait",
+    phishingScore: document.getElementById("score").innerText || "Non testé",
+    newsViewed: document.getElementById("alertNiv").innerText || "Aucune",
 };
 
 document.getElementById("reportContent").innerHTML = `
@@ -71,10 +63,7 @@ document.getElementById("reportModal").style.display = "none";
 
 function exportJSON() {
 
-const blob = new Blob(
-[JSON.stringify(reportData, null, 2)],
-{ type: "application/json" }
-);
+const blob = new Blob([JSON.stringify(reportData, null, 2)],{ type: "application/json" });
 
 const url = URL.createObjectURL(blob);
 
