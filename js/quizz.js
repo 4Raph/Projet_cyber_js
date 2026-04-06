@@ -1,111 +1,111 @@
-let questions = [];
-let currentIndex = 0;
-let score = 0;
-let streak = 0;
-let timer;
-let tempsRestant = 10;
+let questions = []
+let currentIndex = 0
+let score = 0
+let streak = 0
+let timer
+let tempsRestant = 10
 
 function startQuiz() {
   questions = QUIZ_QUESTIONS
     .sort(() => Math.random() - 0.5)
-    .slice(0, 10);
+    .slice(0, 10)
 
-  currentIndex = 0;
-  score = 0;
-  streak = 0;
-  AffichageQuestion();
+  currentIndex = 0
+  score = 0
+  streak = 0
+  AffichageQuestion()
 }
 
 function AffichageQuestion() {
-  let q = QuestionId(questions[currentIndex].id);
+  let q = QuestionId(questions[currentIndex].id)
 
   document.getElementById("progress").innerText =
-    "Question " + (currentIndex + 1) + " / " + questions.length;
+    "Question " + (currentIndex + 1) + " / " + questions.length
 
   document.getElementById("barFill").style.width =
-  ((currentIndex + 1) / questions.length * 100) + "%";
+  ((currentIndex + 1) / questions.length * 100) + "%"
 
-  document.getElementById("question").innerText = q.question;
+  document.getElementById("question").innerText = q.question
 
   document.getElementById("reponse").innerHTML = q.réponses.map((rep, i) =>
     `<button onclick="reponse(${i})">${rep.text}</button>`
-  ).join("");
+  ).join("")
 
-  document.getElementById("explication").innerText = "";
+  document.getElementById("explication").innerText = ""
 
-  document.querySelector("button[onclick='nextQuestion()']").disabled = true;
+  document.querySelector("button[onclick='nextQuestion()']").disabled = true
 
-  startTimer();
+  startTimer()
 }
 
 function startTimer() {
-  tempsRestant = 10;
-  document.getElementById("timer").innerText = "Temps : " + tempsRestant;
+  tempsRestant = 10
+  document.getElementById("timer").innerText = "Temps : " + tempsRestant
 
-  clearInterval(timer);
+  clearInterval(timer)
 
   timer = setInterval(() => {
-    tempsRestant--;
-    document.getElementById("timer").innerText = "Temps : " + tempsRestant;
+    tempsRestant--
+    document.getElementById("timer").innerText = "Temps : " + tempsRestant
 
     if (tempsRestant <= 0) {
-      clearInterval(timer);
-      streak = 0;
-      nextQuestion();
+      clearInterval(timer)
+      streak = 0
+      nextQuestion()
     }
-  }, 1000);
+  }, 1000)
 }
 
 function reponse(index) {
-  clearInterval(timer);
+  clearInterval(timer)
 
-  let q = QuestionId(questions[currentIndex].id);
-  let rep = q.réponses[index];
+  let q = QuestionId(questions[currentIndex].id)
+  let rep = q.réponses[index]
 
   if (rep.correct) {
-    let bonus = tempsRestant * 5;
+    let bonus = tempsRestant * 5
 
-    streak++;
-    let streakBonus = (streak >= 3) ? 1.5 : 1;
+    streak++
+    let streakBonus = (streak >= 3) ? 1.5 : 1
 
-    score += (q.points + bonus) * streakBonus;
+    score += (q.points + bonus) * streakBonus
 
-    document.getElementById("explication").innerText = "✅ " + q.explication;
+    document.getElementById("explication").innerText = "✅ " + q.explication
   } else {
-    streak = 0;
-    document.getElementById("explication").innerText = "❌ " + q.explication;
+    streak = 0
+    document.getElementById("explication").innerText = "❌ " + q.explication
   }
 
-  document.getElementById("score").innerText = "Score : " + Math.floor(score);
+  document.getElementById("score").innerText = "Score : " + Math.floor(score)
 
-  document.querySelectorAll("#reponse button").forEach(btn => btn.disabled = true);
+  document.querySelectorAll("#reponse button").forEach(btn => btn.disabled = true)
 
-  document.querySelector("button[onclick='nextQuestion()']").disabled = false;
+  document.querySelector("button[onclick='nextQuestion()']").disabled = false
 }
 
 function nextQuestion() {
-  currentIndex++;
+  currentIndex++
 
   if (currentIndex >= questions.length) {
-    endQuiz();
+    endQuiz()
   } else {
-    AffichageQuestion();
+    AffichageQuestion()
   }
 }
 
 function endQuiz() {
-  clearInterval(timer);
-  let scores = JSON.parse(localStorage.getItem("scores")) || [];
+  clearInterval(timer)
+  let scores = JSON.parse(localStorage.getItem("scores")) || []
 
   // ajouter score seulement si différent
   if (!scores.includes(score)) {
-    scores.push(score);
+    scores.push(score)
   }
 
-  scores.sort((a, b) => b - a);
-  scores = scores.slice(0, 5);
+  scores.sort((a, b) => b - a)
+  scores = scores.slice(0, 5)
 
-  localStorage.setItem("scores", JSON.stringify(scores));
+  localStorage.setItem("scores", JSON.stringify(scores))
 
   document.getElementById("quizContent").innerHTML = `
     <h2>Quiz terminé !</h2>
@@ -116,7 +116,7 @@ function endQuiz() {
     <p>${scores.join(" | ")}</p>
 
     <button onclick="restartQuiz()">Recommencer</button>
-  `;
+  `
 }
 
 function restartQuiz() {
@@ -137,11 +137,11 @@ function restartQuiz() {
     <button onclick="nextQuestion()">Question suivante</button>
 
     <h3 id="score"></h3>
-  `;
+  `
 
-  startQuiz();
+  startQuiz()
 }
 
 function QuestionId(id) {
-  return QUIZ_QUESTIONS.find(q => q.id === id);
+  return QUIZ_QUESTIONS.find(q => q.id === id)
 }
