@@ -219,6 +219,31 @@ background: #f1f7ff;
 
 /* ===== PASSWORD BAR ===== */
 
+#passwordBox {
+margin-top: 15px;
+}
+
+#passwordBar {
+width: 100%;
+height: 18px;
+background: #eee;
+border-radius: 10px;
+overflow: hidden;
+}
+
+#passwordFill {
+height: 100%;
+width: 0%;
+background: red;
+transition: 0.3s;
+}
+
+#passwordText {
+margin-top: 8px;
+font-weight: bold;
+}
+
+
 #passwordStrength {
 height: 15px;
 background: #eee;

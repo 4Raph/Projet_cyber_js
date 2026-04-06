@@ -31,7 +31,7 @@ let reportData = {}
 function generateReport() {
 reportData = {
     date: new Date().toLocaleString(),
-    password: document.getElementById("passwordStrength").innerText || "Non testé",
+    password: document.getElementById("passwordText").innerText || "Non testé",
     quizScore: localStorage.getItem("scores") || "Pas fait",
     phishingScore: document.getElementById("score").innerText || "Non testé",
     newsViewed: document.getElementById("alertNiv").innerText || "Aucune",
